@@ -1,0 +1,25 @@
+实验题目：求解对数几率回归问题
+
+实验内容：
+
+1. 根据给定数据集（存放在data1.txt文件中，二分类数据），编码实现基于梯度下降的Logistic回归算法，画出决策边界；
+* 画决策边界的参考代码：
+def plotDescisionBoundary(X,y,theta):
+    # 补充画当前样本散点图的代码
+# 分类决策面 theta0+theta1*x1+theta2*x2 = 0
+    x1 = np.arange(min(X[:, 0]), max(X[:, 0]), 0.1)
+    x2 = -(theta[1]*x1+theta[0])/theta[2]
+    plt.plot(x1,x2)
+    plt.show()
+    
+2. 从UCI中选择鸢尾花数据集（多分类数据），使用Sklearn实现Logistic回归；
+* 本实验给出读取鸢尾花数据的参考代码：
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+from sklearn.metrics import accuracy_score
+from sklearn.datasets import load_iris
+iris = load_iris()
+print(iris.DESCR)
+X = iris.data
+y = iris.target
